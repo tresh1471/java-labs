@@ -14,12 +14,15 @@ public class StatusFileService {
     public TreeSet<String> readStatuses(String fileName) {
         TreeSet<String> statuses = new TreeSet<>();
         InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
-
         if (inputStream == null) {
             throw new IllegalArgumentException("Файл не найден: " + fileName);
         }
 
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
+        try (
+                inputStream;
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+                BufferedReader reader = new BufferedReader(inputStreamReader)
+        ) {
             reader.readLine();
 
             String line;

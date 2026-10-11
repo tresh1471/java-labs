@@ -17,10 +17,13 @@
         <maven-surefire-plugin.version>3.5.5</maven-surefire-plugin.version>
         <maven.shade.plugin.version>3.6.2</maven.shade.plugin.version>
         <junit.version>6.1.0</junit.version>
+        <flyway.version>12.8.1</flyway.version>
+        <spring.dependencies.version>4.1.1</spring.dependencies.version>
     </properties>
 
     <modules>
         <module>lab-1</module>
+        <module>lab-2</module>
     </modules>
 
     <dependencyManagement>
@@ -30,6 +33,25 @@
                 <artifactId>junit-jupiter</artifactId>
                 <version>${junit.version}</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-core</artifactId>
+                <version>${flyway.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-database-postgresql</artifactId>
+                <version>${flyway.version}</version>
+            </dependency>
+
+            <!-- Provides compatible PostgreSQL, HikariCP and SLF4J versions. -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
