@@ -1,3 +1,5 @@
+//реализация миграции Flyway
+
 package ru.mihail.labs.config;
 
 import org.flywaydb.core.Flyway;
@@ -26,7 +28,7 @@ public class DatabaseMigrator {
                     .load();
 
             int migrationsCount = flyway.migrate().migrationsExecuted;
-            log.info("Database migrations applied: {}", migrationsCount);
+                log.info("Database migrations applied: {}", migrationsCount);
         } catch (Exception e) {
             throw new DatabaseException("Failed to apply database migrations", e);
         }

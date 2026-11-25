@@ -1,3 +1,5 @@
+//реализация hikari
+
 package ru.mihail.labs.config;
 
 import com.zaxxer.hikari.HikariConfig;

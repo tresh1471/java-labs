@@ -12,17 +12,17 @@ import ru.mihail.labs.repository.TeamRepository;
 public class Main {
 
     private static final Logger log = LoggerFactory.getLogger(Main.class);
-
+//запуск и настройка
     public static void main(String[] args) {
         DatabaseConfig databaseConfig = DatabaseConfig.load("application.properties");
         new DatabaseMigrator(databaseConfig).migrate();
-
+//соединение с sql
         try (ConnectionFactory connectionFactory = new ConnectionFactory(databaseConfig)) {
             TeamRepository repository = new JdbcTeamRepository(connectionFactory);
             demonstrateCrud(repository);
         }
     }
-
+//демонстрация crud
     private static void demonstrateCrud(TeamRepository repository) {
         String teamName = "Java Team " + System.currentTimeMillis();
         TeamEntity team = new TeamEntity(teamName, 10);

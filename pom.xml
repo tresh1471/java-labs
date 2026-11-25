@@ -18,12 +18,13 @@
         <maven.shade.plugin.version>3.6.2</maven.shade.plugin.version>
         <junit.version>6.1.0</junit.version>
         <flyway.version>12.8.1</flyway.version>
-        <spring.dependencies.version>4.1.1</spring.dependencies.version>
+        <spring.dependencies.version>4.1.2</spring.dependencies.version>
     </properties>
 
     <modules>
         <module>lab-1</module>
         <module>lab-2</module>
+        <module>lab-3</module>
     </modules>
 
     <dependencyManagement>
